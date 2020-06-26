@@ -15,7 +15,7 @@ func solve_equation(a: Double, b: Double, c:Double) -> Array<String> {
         return[String(format:"%.3f", x1),String(format:"%.3f", x2)]
     }
     else {
-       return ["Решение уравнения находится в комлпексной плоскости"]
+       return ["Решение уравнения находится в комплексной плоскости"]
     }
 }
 
