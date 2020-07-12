@@ -78,7 +78,7 @@ extension Car {
 }
 
 
-class TuncCar: Car {
+class TrankCar: Car {
 
     var color: String
     var navigation: Bool
@@ -87,10 +87,10 @@ class TuncCar: Car {
     var engineState: engineState
     var windowsState: windowsState
     var doorsState: doorsState
-    var filledTuncVolume: Int
-    var tuncVolume: Int
+    var filledTrankVolume: Int
+    var trankVolume: Int
     
-    init(color: String, navigation: Bool, transmission: transmission, doorCount: doorCount, engineState: engineState, windowsState: windowsState, doorsState: doorsState, filledTuncVolume: Int, tuncVolume: Int) {
+    init(color: String, navigation: Bool, transmission: transmission, doorCount: doorCount, engineState: engineState, windowsState: windowsState, doorsState: doorsState, filledTrankVolume: Int, trankVolume: Int) {
         self.color = color
         self.navigation = navigation
         self.transmission = transmission
@@ -98,43 +98,43 @@ class TuncCar: Car {
         self.engineState = engineState
         self.windowsState = windowsState
         self.doorsState = doorsState
-        self.filledTuncVolume = filledTuncVolume
-        self.tuncVolume = tuncVolume
+        self.filledTrankVolume = filledTrankVolume
+        self.trankVolume = trankVolume
     }
 }
 
-extension TuncCar: CustomStringConvertible {
+extension TrankCar: CustomStringConvertible {
     var description: String{
         get {
-            return "\n\nОбщая вместимость: \(tuncVolume) \nСвободно:\(freeTruncVolume)"
+            return "\n\nОбщая вместимость: \(trankVolume) \nСвободно:\(freeTrankVolume)"
         }
     }
 }
 
-extension TuncCar{
-    var freeTruncVolume: Int {
+extension TrankCar{
+    var freeTrankVolume: Int {
         get {
-            return tuncVolume - filledTuncVolume
+            return trankVolume - filledTrankVolume
         }
     }
 }
 
-extension TuncCar{
-     func loadIntoTunc(to filledTuncVolume: Int) {
-              guard filledTuncVolume <= self.freeTruncVolume else {
+extension TrankCar{
+     func loadIntoTrank(to filledTrankVolume: Int) {
+              guard filledTrankVolume <= self.freeTrankVolume else {
                   print("Вы пытаетесь загрузить больше, чем свободно")
                   return
               }
-              self.filledTuncVolume += filledTuncVolume
+              self.filledTrankVolume += filledTrankVolume
               return
           }
-    func unloadFromTunc(to filledTuncVolume: Int) {
-        guard filledTuncVolume <= self.filledTuncVolume else {
+    func unloadFromTrank(to filledTrankVolume: Int) {
+        guard filledTrankVolume <= self.filledTrankVolume else {
             print("Вы пытаетесь выгрузить больше, чем занято. Забирайте все, что есть =) ")
-            self.filledTuncVolume = 0
+            self.filledTrankVolume = 0
             return
         }
-        self.filledTuncVolume -= filledTuncVolume
+        self.filledTrankVolume -= filledTrankVolume
         return
     }
 }
@@ -171,19 +171,19 @@ extension SportCar: CustomStringConvertible {
     }
 }
 
-var tuncCar1 = TuncCar(color: "blue", navigation: false, transmission: .robot, doorCount: .four, engineState: .works, windowsState: .closed, doorsState: .opened, filledTuncVolume: 100, tuncVolume: 500)
+var trankCar1 = TrankCar(color: "blue", navigation: false, transmission: .robot, doorCount: .four, engineState: .works, windowsState: .closed, doorsState: .opened, filledTrankVolume: 100, trankVolume: 500)
 
-print(tuncCar1.doorsState)
-tuncCar1.doorsClose()
-print(tuncCar1.doorsState)
+print(trankCar1.doorsState)
+trankCar1.doorsClose()
+print(trankCar1.doorsState)
 
 
-print (tuncCar1)
-tuncCar1.unloadFromTunc(to: 1000)
+print (trankCar1)
+trankCar1.unloadFromTrank(to: 1000)
 
 
 var sportCar1 = SportCar(color: "white", navigation: false, transmission: .robot, doorCount: .four, engineState: .works, windowsState: .closed, doorsState: .opened, maxSpeed: 300)
 
 
-print (tuncCar1)
+print (trankCar1)
 print (sportCar1)
