@@ -29,8 +29,8 @@ extension Database {
         guard (tables.firstIndex(of: tablename) == nil) else {
             return (nil, DatabaseError.tableAlreadyExist)
         }
-            tables.append(tablename)
-            return (tablename,nil)
+        tables.append(tablename)
+        return (tablename,nil)
     }
     
     mutating func dropTable(to tablename: String) throws -> (String?) {
@@ -44,7 +44,7 @@ extension Database {
 }
 
 class myDatabase: Database {
-
+    
     var tables = ["cx_appeals","cx_request","s_contact"]
     
     init(tables: [String] = ["cx_appeals","cx_request","s_contact"]) {
