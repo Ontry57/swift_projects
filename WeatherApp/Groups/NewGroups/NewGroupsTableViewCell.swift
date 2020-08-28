@@ -17,8 +17,8 @@ class NewGroupsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
            super.awakeFromNib()
            // Initialization code
-           backgroundColor = .lightGray
-           //avatarImageView.layer.cornerRadius = avatarImageView.frame.size.height
+           //backgroundColor = .lightGray
+           newGroupImage.layer.cornerRadius = newGroupImage.frame.size.height/2
        }
 
        override func setSelected(_ selected: Bool, animated: Bool) {
